@@ -3,7 +3,11 @@
 </template>
 
 <script>
-export default {}
+export default {
+  head() {
+    return {
+      title: 'Home',
+    }
+  },
+}
 </script>
-
-<style></style>
