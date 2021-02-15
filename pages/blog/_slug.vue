@@ -1,6 +1,9 @@
 <template>
-  <article>
+  <article class="article">
     <nuxt-content :document="page" />
+    <small>
+      {{ page.author }}
+    </small>
   </article>
 </template>
 
@@ -13,5 +16,25 @@ export default {
       page,
     }
   },
+  head() {
+    return {
+      title: this.page.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.page.description,
+        },
+      ],
+    }
+  },
 }
 </script>
+
+<style lang="scss">
+.nuxt-content {
+  img {
+    width: 100%;
+  }
+}
+</style>
