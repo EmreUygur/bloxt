@@ -1,10 +1,10 @@
 <template>
   <header class="navbar">
     <div class="navbar-section">
-      <Link to="/" label="Bloxt" />
+      <Link to="/" label="Bloxt" variant="navbar-brand" />
     </div>
     <div class="navbar-section">
-      <Link to="/blog" label="Blog" />
+      <Link to="/blog" label="Blog" variant="navbar-link" />
     </div>
   </header>
 </template>
