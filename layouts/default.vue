@@ -9,8 +9,10 @@
 </template>
 
 <style lang="scss">
+@import '~assets/styles/palette.scss';
 body {
   margin: 0;
+  background-color: $background;
   .container {
     width: 1600px;
     margin: 0 auto;
