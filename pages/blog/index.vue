@@ -1,10 +1,16 @@
 <template>
   <div>
-    <ul>
-      <li v-for="article in articles" :key="article.title">
-        <Link :to="`/blog/${article.slug}`" :label="article.title" />
-      </li>
-    </ul>
+    <div class="articles">
+      <ArticleCard
+        v-for="article in articles"
+        :key="article.title"
+        :title="article.title"
+        :author="article.author"
+        :slug="article.slug"
+        :description="article.description"
+        :created-at="article.createdAt"
+      />
+    </div>
   </div>
 </template>
 
@@ -26,3 +32,12 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.articles {
+  width: 100%;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: auto;
+}
+</style>
