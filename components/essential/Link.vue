@@ -14,7 +14,10 @@ export default {
     variant: {
       type: String,
       required: false,
-      default: '',
+      default: 'default',
+      validator(variant) {
+        return ['navbar-brand', 'navbar-link', 'default'].includes(variant)
+      },
     },
     label: {
       type: String,
@@ -29,5 +32,12 @@ export default {
   color: #000;
   text-decoration: none;
   outline: none;
+  &.navbar-brand {
+    font-size: 36px;
+    font-weight: 600;
+  }
+  &.navbar-link {
+    font-size: 24px;
+  }
 }
 </style>
