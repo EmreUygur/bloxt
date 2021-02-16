@@ -19,7 +19,7 @@ body {
     flex-direction: column;
     .content-wrapper {
       width: 1240px;
-      margin: 20px auto;
+      margin: (56px + 20px) auto 20px auto;
     }
   }
 }
