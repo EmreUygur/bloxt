@@ -28,16 +28,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~/assets/styles/palette.scss';
+
 .link {
-  color: #000;
-  text-decoration: none;
   outline: none;
+  &.default {
+    color: $link;
+  }
   &.navbar-brand {
+    text-decoration: none;
     font-size: 36px;
     font-weight: 600;
+    color: $buttonText;
   }
   &.navbar-link {
+    text-decoration: none;
     font-size: 24px;
+    color: $buttonText;
   }
 }
 </style>
