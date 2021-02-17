@@ -48,10 +48,11 @@ export default {
     date() {
       const date = new Date(this.createdAt)
 
-      const day = date.getDay() + 1
-      const month = date.getMonth() + 1
-      const year = date.getFullYear()
-      return `${day}.${month}.${year}`
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })
     },
   },
 }
