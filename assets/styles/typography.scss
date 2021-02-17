@@ -7,6 +7,7 @@
 
 body {
   font-family: 'Nunito Sans';
+  color: $paragraph;
 }
 
 h1,
@@ -18,6 +19,24 @@ h6 {
   color: $headline;
 }
 
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
 p {
-  color: $paragraph;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  &.description {
+    margin-top: 0;
+    font-size: 1.3rem;
+    line-height: 1.8;
+  }
 }
