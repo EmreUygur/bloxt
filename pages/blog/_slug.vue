@@ -1,5 +1,7 @@
 <template>
   <article class="article">
+    <h1>{{ page.title }}</h1>
+    <p class="description">{{ page.description }}</p>
     <nuxt-content :document="page" />
     <small>
       {{ page.author }}
