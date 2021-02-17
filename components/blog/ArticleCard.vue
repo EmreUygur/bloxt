@@ -69,6 +69,8 @@ export default {
   outline: none;
   color: $headline;
   text-decoration: none;
+  cursor: pointer;
+
   &-header {
     display: flex;
     justify-content: space-between;
