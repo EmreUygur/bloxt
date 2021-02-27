@@ -12,10 +12,13 @@
 <script>
 export default {
   async asyncData({ $content, params }) {
-    const page = await $content('articles', params.slug).fetch()
+    const result = await $content('articles')
+      .where({ slug: params.slug })
+      .limit(1)
+      .fetch()
 
     return {
-      page,
+      page: result[0],
     }
   },
   head() {
