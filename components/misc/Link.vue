@@ -43,7 +43,9 @@ export default {
   }
   &.navbar-link {
     text-decoration: none;
-    font-size: 24px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.03rem;
     color: $buttonText;
   }
 }
