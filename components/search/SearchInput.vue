@@ -1,6 +1,8 @@
 <template>
   <form @submit.prevent="search">
     <div class="search-bar">
+      <SearchIcon />
+
       <input
         ref="search"
         type="text"
@@ -12,7 +14,12 @@
 </template>
 
 <script>
+import SearchIcon from '@/assets/icons/search.svg'
+
 export default {
+  components: {
+    SearchIcon,
+  },
   data() {
     return {
       timeout: null,
@@ -48,13 +55,20 @@ export default {
   margin: 36px 0 24px;
   padding-bottom: 6px;
   border-bottom: 2px solid #fff;
+  color: #fff;
+}
+
+svg {
+  width: 45px;
+  height: 45px;
 }
 
 input {
   flex-grow: 1;
   background-color: transparent;
   font-size: 36px;
-  color: #fff;
+  margin: 0 6px;
+  color: inherit;
   border: none;
   outline: none;
 }

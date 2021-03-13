@@ -1,11 +1,7 @@
 <template>
   <div class="search">
     <button type="button" class="search-button">
-      <img
-        :src="require('@/assets/icons/search.svg')"
-        alt="Search"
-        @click="isActive = true"
-      />
+      <SearchIcon @click="isActive = true" />
     </button>
 
     <div class="search-panel" :class="{ active: isActive }">
@@ -17,7 +13,12 @@
 </template>
 
 <script>
+import SearchIcon from '@/assets/icons/search.svg'
+
 export default {
+  components: {
+    SearchIcon,
+  },
   data() {
     return {
       isActive: false,
@@ -43,7 +44,7 @@ export default {
     cursor: pointer;
     transition: box-shadow 0.25s ease-out;
 
-    img {
+    svg {
       width: auto;
       height: 60%;
       margin: auto;
