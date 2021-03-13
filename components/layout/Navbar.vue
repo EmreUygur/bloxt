@@ -57,6 +57,10 @@ header {
 
     &-section {
       display: flex;
+      align-items: center;
+      &:last-child > *:not(:first-child) {
+        margin-left: 1rem;
+      }
     }
   }
   &.scrolled {
