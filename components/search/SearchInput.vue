@@ -51,6 +51,7 @@ export default {
 }
 
 input {
+  flex-grow: 1;
   background-color: transparent;
   font-size: 36px;
   color: #fff;
