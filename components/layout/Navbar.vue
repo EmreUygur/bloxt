@@ -6,6 +6,7 @@
       </div>
       <div class="navbar-section">
         <Link to="/blog" label="Blog" variant="navbar-link" />
+        <Search />
       </div>
     </div>
   </header>
