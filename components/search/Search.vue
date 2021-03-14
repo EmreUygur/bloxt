@@ -15,7 +15,7 @@
               placeholder="Search..."
               @keyup="keyupEventHandler"
             />
-            <CloseIcon />
+            <CloseIcon @click="isActive = false" />
           </div>
         </form>
       </div>
