@@ -5,8 +5,19 @@
     </button>
 
     <div class="search-panel" :class="{ active: isActive }">
-      <div class="search-wrapper">
-        <SearchInput />
+      <div class="search-container">
+        <form @submit.prevent="search">
+          <div class="search-container-bar">
+            <SearchIcon />
+            <input
+              ref="searchInput"
+              type="text"
+              placeholder="Search..."
+              @keyup="keyupEventHandler"
+            />
+            <CloseIcon />
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -14,15 +25,37 @@
 
 <script>
 import SearchIcon from '@/assets/icons/search.svg'
+import CloseIcon from '@/assets/icons/x.svg'
 
 export default {
   components: {
     SearchIcon,
+    CloseIcon,
   },
   data() {
     return {
       isActive: false,
+      timeout: null,
     }
+  },
+  methods: {
+    async search() {
+      const query = this.$refs.searchInput.value
+
+      const result = await this.$content('articles').search(query).fetch()
+
+      console.log(result)
+    },
+    keyupEventHandler() {
+      if (this.timeout !== null) {
+        clearTimeout(this.timeout)
+        this.timeout = null
+      }
+
+      this.timeout = setTimeout(() => {
+        this.search()
+      }, 500)
+    },
   },
 }
 </script>
@@ -71,7 +104,7 @@ export default {
     }
   }
 
-  &-wrapper {
+  &-container {
     width: 1600px;
     display: flex;
     flex-direction: column;
@@ -79,6 +112,33 @@ export default {
     font-size: 36px;
     line-height: 40px;
     margin: 0 auto;
+
+    &-bar {
+      display: flex;
+      width: 100%;
+      margin: 36px 0 24px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #fff;
+      color: #fff;
+
+      svg {
+        width: 45px;
+        height: 45px;
+        &:last-child {
+          cursor: pointer;
+        }
+      }
+
+      input {
+        flex-grow: 1;
+        background-color: transparent;
+        font-size: 36px;
+        margin: 0 6px;
+        color: inherit;
+        border: none;
+        outline: none;
+      }
+    }
   }
 }
 </style>
