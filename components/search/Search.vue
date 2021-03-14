@@ -16,6 +16,9 @@
           />
           <CloseIcon @click="isActive = false" />
         </div>
+        <div v-if="onWait" class="on-wait-spinner"></div>
+        <div v-else-if="results.length == 0" class="no-result"></div>
+        <div v-else class="search-results"></div>
       </div>
     </div>
   </div>
@@ -34,17 +37,20 @@ export default {
     return {
       isActive: false,
       timeout: null,
+      results: [],
+      onWait: false,
     }
   },
   methods: {
     async search() {
       const query = this.$refs.searchInput.value
 
-      const result = await this.$content('articles').search(query).fetch()
-
-      console.log(result)
+      this.results = await this.$content('articles').search(query).fetch()
+      this.onWait = false
     },
     keyupEventHandler() {
+      this.onWait = true
+
       if (this.timeout !== null) {
         clearTimeout(this.timeout)
         this.timeout = null
