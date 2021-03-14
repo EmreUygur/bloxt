@@ -6,18 +6,16 @@
 
     <div class="search-panel" :class="{ active: isActive }">
       <div class="search-container">
-        <form @submit.prevent="search">
-          <div class="search-container-bar">
-            <SearchIcon />
-            <input
-              ref="searchInput"
-              type="text"
-              placeholder="Search..."
-              @keyup="keyupEventHandler"
-            />
-            <CloseIcon @click="isActive = false" />
-          </div>
-        </form>
+        <div class="search-container-bar">
+          <SearchIcon />
+          <input
+            ref="searchInput"
+            type="text"
+            placeholder="Search..."
+            @keyup="keyupEventHandler"
+          />
+          <CloseIcon @click="isActive = false" />
+        </div>
       </div>
     </div>
   </div>
