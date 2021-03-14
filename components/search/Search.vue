@@ -17,8 +17,11 @@
           <CloseIcon @click="isActive = false" />
         </div>
         <div v-show="onWait" class="on-wait-spinner"></div>
-        <div v-show="results.length == 0" class="no-result"></div>
-        <div v-show="results.length > 0" class="search-results"></div>
+        <div v-show="!onWait && results.length == 0" class="no-result"></div>
+        <div
+          v-show="!onWait && results.length > 0"
+          class="search-results"
+        ></div>
       </div>
     </div>
   </div>
